@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rajvardhan Pradeep Vharambale — Computer Science student and aspiring software developer.">
+    <title>Rajvardhan Vharambale | Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #071326;
+            --panel: #102544;
+            --line: rgba(185, 207, 244, .17);
+            --text: #f4f7ff;
+            --muted: #aabbd4;
+            --blue: #83adff;
+            --mint: #8ee5d1;
+            --max: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background:
+                radial-gradient(ellipse at 78% 8%, #24477966, transparent 34rem),
+                radial-gradient(ellipse at 12% 40%, #1b3c6a55, transparent 30rem),
+                var(--bg);
+            font: 16px/1.7 Inter, "Segoe UI", Arial, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(var(--max), calc(100% - 42px));
+            margin: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .eyebrow {
+            color: var(--blue);
+            font-size: .76rem;
+            font-weight: 800;
+            letter-spacing: .19em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 1px;
+            background: currentColor;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .accent {
+            color: #b0cbff;
+        }
+
+        .muted,
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .section-heading {
+            max-width: 680px;
+            margin-bottom: 36px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.12;
+            letter-spacing: -.045em;
+            margin: 12px 0;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #142b4de8, #0a1a31e8);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: 0 24px 70px #0003;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 20px;
+            min-height: 48px;
+            border-radius: 12px;
+            font-weight: 750;
+            border: 1px solid transparent;
+            transition: .25s;
+            cursor: pointer;
+        }
+
+        .primary {
+            background: var(--blue);
+            color: #071326;
+        }
+
+        .primary:hover {
+            background: #b0cbff;
+            transform: translateY(-3px);
+        }
+
+        .outline {
+            border-color: #cddcf655;
+        }
+
+        .outline:hover {
+            border-color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+        .tag {
+            display: inline-flex;
+            padding: 5px 11px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: #d7e4fb;
+            font-size: .8rem;
+            background: #ffffff05;
+        }
+
+        /* Navigation */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #071326d9;
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid #b9cff422;
+        }
+
+        .nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: -.04em;
+        }
+
+        .brand span {
+            color: var(--blue);
+        }
+
+        .links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .links a {
+            font-size: .9rem;
+            font-weight: 650;
+            color: #d5e0f2;
+        }
+
+        .links a:hover {
+            color: var(--blue);
+        }
+
+        .menu {
+            display: none;
+            color: white;
+            background: transparent;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Hero section */
+
+        .hero {
+            min-height: calc(100svh - 76px);
+            display: grid;
+            align-items: center;
+            padding: 75px 0 85px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
+            align-items: center;
+            gap: clamp(36px, 6vw, 88px);
+        }
+
+        h1 {
+            font-size: clamp(3.1rem, 7vw, 5.8rem);
+            line-height: .99;
+            letter-spacing: -.075em;
+            margin: 20px 0 16px;
+        }
+
+        h1 span {
+            display: block;
+            color: #b0cbff;
+        }
+
+        .role {
+            font-size: clamp(1.05rem, 2vw, 1.4rem);
+            font-weight: 750;
+            color: #d9e6fb;
+        }
+
+        .hero-copy {
+            max-width: 650px;
+            color: #c0cee3;
+        }
+
+        .tags,
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .note {
+            color: #9eb3d0;
+            font-size: .84rem;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--mint);
+            border-radius: 50%;
+            margin-right: 9px;
+            box-shadow: 0 0 14px #8ee5d1a6;
+        }
+
+        .portrait-wrap {
+            position: relative;
+            width: min(100%, 360px);
+            margin: 12px auto 0;
+            padding: 0 10px 10px 0;
+        }
+
+        .portrait {
+            position: relative;
+            overflow: hidden;
+            padding: 7px;
+            border-radius: 24px;
+            border: 3px solid var(--blue);
+            background: linear-gradient(145deg, #ffffff12, #83adff08);
+            box-shadow: 0 28px 70px #0005;
+        }
+
+        .portrait img {
+            width: 100%;
+            height: auto;
+            border-radius: 17px;
+            image-rendering: auto;
+            filter: saturate(.98) contrast(1.015);
+        }
+
+        .score {
+            position: absolute;
+            right: 0;
+            bottom: 28px;
+            padding: 12px 16px;
+            background: #10294b;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+        }
+
+        .score strong {
+            display: block;
+            color: #b0cbff;
+            font-size: 1.1rem;
+        }
+
+        .score small {
+            color: var(--muted);
+        }
+
+        /* About section */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 48px;
+        }
+
+        .about-copy {
+            color: #c1cfe3;
+        }
+
+        .callout {
+            padding: 22px;
+            border-left: 2px solid var(--blue);
+            background: #83adff0f;
+            border-radius: 0 14px 14px 0;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .highlight {
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #ffffff05;
+        }
+
+        .highlight strong {
+            display: block;
+        }
+
+        .highlight span {
+            color: var(--muted);
+            font-size: .87rem;
+        }
+
+        /* Skills section */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .skill {
+            padding: 23px;
+        }
+
+        .number {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: #83adff1c;
+            color: #b0cbff;
+            font-weight: 900;
+        }
+
+        .skill h3 {
+            margin: 17px 0 12px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        /* Projects section */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .project {
+            padding: 28px;
+            transition: transform .25s, border-color .25s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #83adff70;
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-no {
+            font-size: .8rem;
+            letter-spacing: .12em;
+            color: var(--blue);
+            font-weight: 850;
+        }
+
+        .symbol {
+            display: grid;
+            place-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: #83adff1a;
+            color: #b0cbff;
+            font-size: 1.3rem;
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            margin-top: 20px;
+            background: #071326;
+        }
+
+        .project h3 {
+            font-size: 1.4rem;
+            margin: 20px 0 8px;
+        }
+
+        .project p {
+            color: var(--muted);
+        }
+
+        .project .tag-list {
+            margin: 18px 0;
+        }
+
+        .project-foot {
+            border-top: 1px solid var(--line);
+            padding-top: 14px;
+            font-size: .86rem;
+            color: #9db8e8;
+        }
+
+        .project-foot span {
+            color: var(--muted);
+        }
+
+        /* Education section */
+
+        .timeline {
+            display: grid;
+            gap: 15px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 24px;
+            padding: 24px;
+        }
+
+        .date {
+            color: #b0cbff;
+            font-weight: 800;
+        }
+
+        .timeline-item h3 {
+            margin: 0;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            margin: 5px 0;
+        }
+
+        .result {
+            color: var(--mint);
+            font-weight: 750;
+            font-size: .86rem;
+        }
+
+        /* Experience section */
+
+        .experience {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .experience article {
+            padding: 24px;
+        }
+
+        .experience h3 {
+            font-size: 1.05rem;
+        }
+
+        .experience p {
+            color: var(--muted);
+            font-size: .93rem;
+        }
+
+        .type {
+            font-size: .76rem;
+            color: #b0cbff;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-weight: 800;
+        }
+
+        /* Contact section */
+
+        .contact {
+            padding: clamp(25px, 5vw, 50px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 42px;
+        }
+
+        .contact h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+            letter-spacing: -.05em;
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .contact-link {
+            padding: 13px 15px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-link span {
+            display: block;
+            color: var(--muted);
+            font-size: .78rem;
+        }
+
+        .form {
+            display: grid;
+            gap: 13px;
+        }
+
+        .field label {
+            display: block;
+            font-size: .86rem;
+            margin-bottom: 6px;
+        }
+
+        .field input,
+        .field textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border-radius: 11px;
+            border: 1px solid #b9cff433;
+            background: #040d1b99;
+            color: white;
+            font: inherit;
+        }
+
+        .field textarea {
+            min-height: 125px;
+            resize: vertical;
+        }
+
+        .form-note {
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 24px 0;
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Reveal animations */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .65s, transform .65s;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Tablet layout */
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                gap: 35px;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experience {
+                grid-template-columns: 1fr;
+            }
+
+            .links {
+                gap: 14px;
+            }
+
+            .about-grid {
+                gap: 28px;
+            }
+        }
+
+        /* Mobile layout */
+
+        @media (max-width: 700px) {
+            .container {
+                width: calc(100% - 32px);
+            }
+
+            .nav {
+                min-height: 68px;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                padding: 15px 22px 22px;
+                background: #09172c;
+                border-bottom: 1px solid var(--line);
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .links.open {
+                display: flex;
+            }
+
+            .links a {
+                padding: 10px 0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 62px 0 72px;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .portrait-wrap {
+                width: min(72%, 280px);
+                margin-top: 15px;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .actions .button {
+                width: 100%;
+            }
+
+            .project {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav container" aria-label="Main navigation">
+            <a class="brand" href="#home">Rajvardhan<span>.</span></a>
+
+            <button
+                class="menu"
+                id="menu"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                type="button">
+                ☰
+            </button>
+
+            <div class="links" id="links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home / Hero -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">Computer Science &amp; Engineering</div>
+
+                    <h1>
+                        Rajvardhan Pradeep
+                        <span>Vharambale.</span>
+                    </h1>
+
+                    <p class="role">
+                        Aspiring Software Developer
+                        <span class="accent">|</span>
+                        Problem Solver
+                        <span class="accent">|</span>
+                        Team Leader
+                    </p>
+
+                    <p class="hero-copy">
+                        I’m a Computer Science and Engineering student interested
+                        in building useful software, solving meaningful problems,
+                        and turning ideas into practical digital experiences.
+                        I enjoy learning modern technologies and growing through
+                        collaboration.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Software Development</span>
+                        <span class="tag">Problem Solving</span>
+                    </div>
+
+                    <div class="actions">
+                        <a class="button primary" href="#projects">
+                            Explore my projects ↗
+                        </a>
+                        <a class="button outline" href="#contact">
+                            Let’s connect
+                        </a>
+                    </div>
+
+                    <p class="note">
+                        <span class="dot"></span>
+                        Currently learning, building, and improving.
+                    </p>
+                </div>
+
+                <div class="portrait-wrap">
+                    <div class="portrait">
+                        <img
+                            src="images/profile.jpg"
+                            alt="Portrait of Rajvardhan Pradeep Vharambale">
+                    </div>
+
+                    <div class="score">
+                        <strong>8.89 / 10</strong>
+                        <small>First-year CGPA</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="section-heading reveal">
+                        <div class="eyebrow">A little about me</div>
+
+                        <h2>
+                            Building skills to turn
+                            <span class="accent">ideas into impact.</span>
+                        </h2>
+                    </div>
+
+                    <div class="about-copy reveal">
+                        <p>
+                            I’m pursuing a B.Tech in Computer Science &amp;
+                            Engineering at D. Y. Patil College of Engineering
+                            &amp; Technology, Kolhapur. I’m interested in
+                            software development, responsive web experiences,
+                            and problem solving.
+                        </p>
+
+                        <p>
+                            Beyond coding, I’ve contributed to student initiatives
+                            and technical events through teamwork, coordination,
+                            and community engagement. I value clear communication,
+                            consistent learning, and building things that are
+                            useful to people.
+                        </p>
+
+                        <div class="callout">
+                            My goal is to keep strengthening my fundamentals
+                            while creating projects that solve real problems.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlights reveal">
+                    <div class="highlight">
+                        <strong>Computer Science</strong>
+                        <span>Current degree · 2024–2028</span>
+                    </div>
+
+                    <div class="highlight">
+                        <strong>8.89 / 10</strong>
+                        <span>First-year CGPA</span>
+                    </div>
+
+                    <div class="highlight">
+                        <strong>3 projects</strong>
+                        <span>Academic and practical builds</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="eyebrow">What I work with</div>
+
+                    <h2>
+                        Skills &amp; <span class="accent">toolkit.</span>
+                    </h2>
+
+                    <p>
+                        A growing set of technical and people skills that help
+                        me learn, collaborate, and build.
+                    </p>
+                </div>
+
+                <div class="skills">
+                    <article class="card skill reveal">
+                        <div class="number">01</div>
+                        <h3>Programming</h3>
+
+                        <div class="tag-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">C++</span>
+                        </div>
+                    </article>
+
+                    <article class="card skill reveal">
+                        <div class="number">02</div>
+                        <h3>Frontend</h3>
+
+                        <div class="tag-list">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">React</span>
+                        </div>
+                    </article>
+
+                    <article class="card skill reveal">
+                        <div class="number">03</div>
+                        <h3>Tools &amp; AI</h3>
+
+                        <div class="tag-list">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">VS Code</span>
+                            <span class="tag">Prompt Engineering</span>
+                        </div>
+                    </article>
+
+                    <article class="card skill reveal">
+                        <div class="number">04</div>
+                        <h3>People skills</h3>
+
+                        <div class="tag-list">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Teamwork</span>
+                            <span class="tag">Communication</span>
+                            <span class="tag">Adaptability</span>
+                            <span class="tag">Time Management</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="eyebrow">Selected work</div>
+
+                    <h2>
+                        Projects with a <span class="accent">purpose.</span>
+                    </h2>
+
+                    <p>
+                        Ideas I’m exploring through software, interfaces,
+                        and practical problem solving.
+                    </p>
+                </div>
+
+                <div class="projects">
+                    <!-- Project 01: CodeVault -->
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <span class="project-no">PROJECT / 01</span>
+                            <span class="symbol">⌘</span>
+                        </div>
+
+                        <img
+                            class="project-image"
+                            src="images/project-1.jpg"
+                            alt="CodeVault cloud-based code execution platform screenshot">
+
+                        <h3>CodeVault</h3>
+
+                        <p>
+                            A cloud-based code execution platform that lets
+                            users write, compile, and run programs in multiple
+                            languages within isolated Docker containers.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">React</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Docker</span>
+                        </div>
+
+                        <div class="project-foot">
+                            Focus
+                            <span>
+                                · Secure code execution and cloud containerization
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Project 02: APEXA -->
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <span class="project-no">PROJECT / 02</span>
+                            <span class="symbol">↗</span>
+                        </div>
+
+                        <img
+                            class="project-image"
+                            src="images/project-2.jpg"
+                            alt="APEXA API analysis tool screenshot">
+
+                        <h3>APEXA</h3>
+
+                        <p>
+                            A Python-based API analysis tool that evaluates
+                            API health, performance, security indicators,
+                            and response data quality, generating actionable
+                            recommendations and detailed PDF reports.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">Requests</span>
+                            <span class="tag">CustomTkinter</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">Matplotlib</span>
+                            <span class="tag">ReportLab</span>
+                        </div>
+
+                        <div class="project-foot">
+                            Focus
+                            <span>
+                                · API security analysis, performance monitoring,
+                                and automated reporting
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Project 03: Java Text Editor -->
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <span class="project-no">PROJECT / 03</span>
+                            <span class="symbol">⌘</span>
+                        </div>
+
+                        <h3>Java Text Editor</h3>
+
+                        <p>
+                            A desktop text editor built around essential
+                            text editing and file operations, with a simple
+                            interface for everyday use.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">Java</span>
+                            <span class="tag">Swing</span>
+                        </div>
+
+                        <div class="project-foot">
+                            Focus
+                            <span>· Desktop application fundamentals</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section" id="education">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="eyebrow">Academic background</div>
+
+                    <h2>
+                        Education &amp; <span class="accent">growth.</span>
+                    </h2>
+                </div>
+
+                <div class="timeline">
+                    <article class="card timeline-item reveal">
+                        <div class="date">2024 — 2028</div>
+
+                        <div>
+                            <h3>B.Tech · Computer Science &amp; Engineering</h3>
+                            <p>
+                                D. Y. Patil College of Engineering &amp;
+                                Technology, Kolhapur
+                            </p>
+                            <span class="result">
+                                First-year CGPA: 8.89 / 10
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="card timeline-item reveal">
+                        <div class="date">2024</div>
+
+                        <div>
+                            <h3>Higher Secondary Certificate (HSC)</h3>
+                            <p>Chate Junior College of Science, Kolhapur</p>
+                            <span class="result">82%</span>
+                        </div>
+                    </article>
+
+                    <article class="card timeline-item reveal">
+                        <div class="date">2022</div>
+
+                        <div>
+                            <h3>Secondary School Certificate (SSC)</h3>
+                            <p>Private High School, Kolhapur</p>
+                            <span class="result">88%</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience / Beyond the Classroom -->
+        <section class="section" id="experience">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="eyebrow">Leadership &amp; initiatives</div>
+
+                    <h2>
+                        Learning beyond
+                        <span class="accent">the classroom.</span>
+                    </h2>
+
+                    <p>
+                        Teamwork and community involvement have helped me
+                        grow alongside my technical skills.
+                    </p>
+                </div>
+
+                <div class="experience">
+                    <article class="card reveal">
+                        <div class="type">
+                            Leadership · Training &amp; Placement
+                        </div>
+
+                        <h3>Placement Coordinator · T/P Cell</h3>
+
+                        <p>
+                            Selected as a Placement Coordinator in the
+                            Training and Placement Cell at D. Y. Patil
+                            College of Engineering &amp; Technology,
+                            supporting placement-related coordination
+                            and communication between students and the cell.
+                        </p>
+                    </article>
+
+                    <article class="card reveal">
+                        <div class="type">Student initiative</div>
+
+                        <h3>
+                            Operations Team Member · Prarambh Development Cell
+                        </h3>
+
+                        <p>
+                            Supported planning, coordination, and execution
+                            of technical and student-development initiatives
+                            with a collaborative team.
+                        </p>
+                    </article>
+
+                    <article class="card reveal">
+                        <div class="type">Technical event</div>
+
+                        <h3>Volunteer · SRIJAN DIPEX 2024</h3>
+
+                        <p>
+                            Contributed to logistics, participant coordination,
+                            and event execution for a state-level engineering
+                            project exhibition.
+                        </p>
+                    </article>
+
+                    <article class="card reveal">
+                        <div class="type">Community service</div>
+
+                        <h3>NSS Volunteer</h3>
+
+                        <p>
+                            Participated in community service and social-awareness
+                            activities, building responsibility and collaboration.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="tags reveal">
+                    <span class="tag">English</span>
+                    <span class="tag">Hindi</span>
+                    <span class="tag">Marathi</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="card contact reveal">
+                    <div>
+                        <div class="eyebrow">Contact</div>
+
+                        <h2>
+                            Have an idea?<br>
+                            <span class="accent">Let’s connect.</span>
+                        </h2>
+
+                        <p class="muted">
+                            I’m open to connecting with people who enjoy
+                            technology, learning, and building useful things.
+                        </p>
+
+                        <div class="contact-links">
+                            <a
+                                class="contact-link"
+                                href="mailto:rajvardhan2416@gmail.com">
+                                <span>Email</span>
+                                rajvardhan2416@gmail.com ↗
+                            </a>
+
+                            <a
+                                class="contact-link"
+                                href="tel:+919322561422">
+                                <span>Phone</span>
+                                +91 9322561422 ↗
+                            </a>
+
+                            <a
+                                class="contact-link"
+                                href="https://www.linkedin.com/in/rajvardhan-pradeep-vharambale-9a6524417/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <span>LinkedIn</span>
+                                Connect professionally ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <form class="form" id="contact-form">
+                        <div class="field">
+                            <label for="name">Your name</label>
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                required
+                                placeholder="Enter your name">
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Your email</label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                required
+                                placeholder="you@example.com">
+                        </div>
+
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                required
+                                placeholder="What would you like to discuss?"></textarea>
+                        </div>
+
+                        <button class="button primary" type="submit">
+                            Prepare email ↗
+                        </button>
+
+                        <p class="form-note">
+                            Opens your email app with a draft; it does not
+                            send automatically.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <span>
+                © <span id="year"></span> Rajvardhan Pradeep Vharambale
+            </span>
+
+            <span>Built with HTML, CSS &amp; JavaScript</span>
+
+            <a href="#home">Back to top ↑</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation menu
+        const menu = document.querySelector("#menu");
+        const links = document.querySelector("#links");
+
+        menu.addEventListener("click", () => {
+            const isOpen = links.classList.toggle("open");
+
+            menu.setAttribute("aria-expanded", isOpen);
+            menu.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menu.textContent = isOpen ? "×" : "☰";
+        });
+
+        // Close the mobile menu after selecting a link
+        links.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                links.classList.remove("open");
+                menu.setAttribute("aria-expanded", "false");
+                menu.setAttribute("aria-label", "Open navigation menu");
+                menu.textContent = "☰";
+            });
+        });
+
+        // Reveal elements when they enter the viewport
+        const items = document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+                (entries, obs) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.12 }
+            );
+
+            items.forEach((item) => observer.observe(item));
+        } else {
+            items.forEach((item) => item.classList.add("visible"));
+        }
+
+        // Automatically update the footer year
+        document.querySelector("#year").textContent =
+            new Date().getFullYear();
+
+        // Prepare an email from the contact form
+        document
+            .querySelector("#contact-form")
+            .addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                const name = document.querySelector("#name").value.trim();
+                const email = document.querySelector("#email").value.trim();
+                const message = document.querySelector("#message").value.trim();
+
+                const subject = encodeURIComponent(
+                    "Portfolio contact from " + name
+                );
+
+                const body = encodeURIComponent(
+                    "Name: " + name +
+                    "\nEmail: " + email +
+                    "\n\nMessage:\n" + message
+                );
+
+                window.location.href =
+                    "mailto:rajvardhan2416@gmail.com?subject=" +
+                    subject +
+                    "&body=" +
+                    body;
+            });
+    </script>
+</body>
+</html>
